@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="script.js"></script>
+    <style>
+      .error {
+        font-size: 15px;
+        color: red;
+      }
+      form {
+        display: flex;
+        flex-flow: column;
+      }
+      input {
+        margin: 10px;
+        width: 300px;
+      }
+      .btn {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="myForm" action="#" method="post">
+        <input type="text" name="name" id="name" placeholder="name" required />
+        <input
+          type="text"
+          name="message"
+          minlength="5"
+          placeholder="message"
+          id="message"
+        />
+        <input
+          type="text"
+          name="phone"
+          placeholder="phone"
+          id="phone"
+          value="+380"
+        />
+        <span id="phoneError" class="error"></span>
+        <input type="email" name="email" placeholder="email" id="email" />
+        <span id="emailError" class="error"></span>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
