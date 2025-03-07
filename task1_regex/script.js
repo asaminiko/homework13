@@ -3,37 +3,42 @@ const emailInput = document.getElementById('email')
 const nameInput = document.getElementById('name')
 const messageInput = document.getElementById('message')
 const regexNumber = /^\+380\d{9}$/
-const regexPoint = /\./
+const regexName = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+$/
+const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const myForm = document.getElementById('myForm')
 const phoneError = document.getElementById('phoneError')
 const emailError = document.getElementById('emailError')
+const nameError = document.getElementById('nameError')
 myForm.addEventListener('submit', function (event) {
+  event.preventDefault()
   let isValid = true
   const phoneValue = numberInput.value.trim()
   const emailValue = emailInput.value.trim()
   const nameValue = nameInput.value.trim()
   const messageValue = messageInput.value.trim()
+
   if (!regexNumber.test(phoneValue)) {
-    event.preventDefault()
     isValid = false
-    phoneError.textContent = 'номер телефону має містити +380 та 9 цифр'
+    phoneError.textContent = 'Некоректний номер телефону'
   } else {
     phoneError.textContent = ''
   }
-
-  if (!regexPoint.test(emailValue)) {
-    event.preventDefault()
+  if (!regexName.test(nameValue)) {
     isValid = false
-    emailError.textContent = 'email має містити одну точку'
+    nameError.textContent = "Некоректне ім'я"
+  } else {
+    nameError.textContent = ''
+  }
+  if (!regexEmail.test(emailValue)) {
+    isValid = false
+    emailError.textContent = 'Некоректний email'
   } else {
     emailError.textContent = ''
   }
   if (!isValid) {
-    event.preventDefault()
     return
   }
   if (isValid) {
-    event.preventDefault()
     console.log(nameValue, messageValue, phoneValue, emailValue)
   }
 })

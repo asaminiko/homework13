@@ -26,7 +26,8 @@
   <body>
     <div>
       <form id="myForm" action="#" method="post">
-        <input type="text" name="name" id="name" placeholder="name" required />
+        <input type="text" name="name" id="name" placeholder="name" />
+        <span id="nameError" class="error"></span>
         <input
           type="text"
           name="message"
@@ -42,7 +43,7 @@
           value="+380"
         />
         <span id="phoneError" class="error"></span>
-        <input type="email" name="email" placeholder="email" id="email" />
+        <input type="text" name="email" placeholder="email" id="email" />
         <span id="emailError" class="error"></span>
         <button class="btn" type="submit">Submit</button>
       </form>
